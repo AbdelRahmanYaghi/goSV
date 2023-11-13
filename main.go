@@ -11,7 +11,7 @@ type DataFrame struct {
 	mat [][]float64
 }
 
-func (df *DataFrame) Read_csv(path string) {
+func Read_csv(path string) DataFrame{
 	// read_csv reads the csv file and returns a dataframe
 	file, err := os.Open(path)
   	
@@ -20,4 +20,6 @@ func (df *DataFrame) Read_csv(path string) {
 	defer file.Close()
 
 	log.Println("Successfully Opened CSV file")
+
+	return DataFrame{filepath: path, seperator: ",", mat: [5][5]float64{}}
 }
